@@ -261,6 +261,7 @@ nginx_modules:
   image_filter: false
   rtmp: false
   xslt: false
+  prometheus: false
 
 # Install NGINX Amplify.
 # Use your NGINX Amplify API key.

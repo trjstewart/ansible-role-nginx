@@ -1,0 +1,7 @@
+---
+- name: "(Install: All OSs) Install NGINX Plus Prometheus Module"
+  package:
+    name: nginx-plus-module-prometheus
+    state: present
+  when: nginx_type == "plus"
+  notify: "(Handler: All OSs) Reload NGINX"

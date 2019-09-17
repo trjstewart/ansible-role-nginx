@@ -1,6 +1,6 @@
 ---
 - import_tasks: install-njs.yml
-  when: nginx_modules.njs | default(false)
+  when: (nginx_modules.njs | default(false)) or (nginx_modules.prometheus | default(false) and nginx_type == "plus")
 
 - import_tasks: install-perl.yml
   when: nginx_modules.perl | default(false)
@@ -19,3 +19,6 @@
 
 - import_tasks: install-waf.yml
   when: nginx_modules.waf | default(false) and nginx_type == "plus"
+
+- import_tasks: install-prometheus.yml
+  when: nginx_modules.prometheus | default(false) and nginx_type == "plus"
